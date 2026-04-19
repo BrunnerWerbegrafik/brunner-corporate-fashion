@@ -41,7 +41,10 @@ src/
 ## Status
 
 - Schritt 1 — Projekt-Grundgerüst: fertig
-- **Schritt 2 — Layout-Komponenten (TopNav, Footer, Abschlusskante):** fertig
-- Schritt 3 — 12 Sektionen der Themenseite: offen
+- Schritt 2 — Layout-Komponenten (TopNav, Footer, Abschlusskante): fertig
+- **Schritt 3 — 12 Sektionen der Themenseite:** fertig
+  (Hero, Breadcrumb, Positionierung, 4 USPs, Logo-Marquee, Zwei-Wege-CTA,
+  4 Kategorien, 4 Veredelungen, 3-Schritt-Prozess, Success Story mit
+  Slider, Lookbook-CTA, Abschluss-CTA + Ansprechpartner)
 - Schritt 4 — Routen-Gerüst Stufe 2: offen
 - Schritt 5 — Datenmodell & Service-Layer: offen

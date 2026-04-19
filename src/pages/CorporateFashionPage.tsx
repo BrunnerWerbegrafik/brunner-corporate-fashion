@@ -1,39 +1,61 @@
 import Abschlusskante from '../components/layout/Abschlusskante';
 import Footer from '../components/layout/Footer';
-import TopNav from '../components/layout/TopNav';
+import AbschlussCta from '../components/sections/AbschlussCta';
+import Breadcrumb from '../components/sections/Breadcrumb';
+import Hero from '../components/sections/Hero';
+import KategorienGrid from '../components/sections/KategorienGrid';
+import LogoMarquee from '../components/sections/LogoMarquee';
+import LookbookCta from '../components/sections/LookbookCta';
+import Positionierung from '../components/sections/Positionierung';
+import ProzessSchritte from '../components/sections/ProzessSchritte';
+import SuccessStory from '../components/sections/SuccessStory';
+import UspGrid from '../components/sections/UspGrid';
+import VeredelungenGrid from '../components/sections/VeredelungenGrid';
+import ZweiWegeCta from '../components/sections/ZweiWegeCta';
 
 export default function CorporateFashionPage() {
   return (
     <div className="cf-app">
-      {/* Hero mit eingebetteter TopNav in Negativ-Variante.
-          TODO(mb): Hero-Hintergrundbild HG-corporate-fashion.webp
-          einsetzen, sobald geliefert. Aktuell Platzhalter-Verlauf. */}
-      <section className="cf-hero-placeholder">
-        <TopNav variant="negativ" />
-        <div className="cf-hero-placeholder__content">
-          <h1>
-            Corporate Fashion <span className="italic">made easy.</span>
-          </h1>
-          <p className="cf-hero-placeholder__subline">
-            Wir wählen die richtigen Textilien. Du entscheidest.
-          </p>
-        </div>
-      </section>
+      {/* 1. Hero */}
+      <Hero />
 
+      {/* 2. Breadcrumb + Positionierung */}
+      <Breadcrumb />
+      <Positionierung />
+
+      {/* 3. USPs */}
+      <UspGrid />
+
+      {/* 4. Logo-Marquee */}
+      <LogoMarquee />
+
+      {/* 5. Zwei-Wege-CTA */}
+      <ZweiWegeCta />
+
+      {/* 6. 4 Kategorien */}
+      <KategorienGrid />
+
+      {/* 7. Veredelungen (graue Sektion) */}
+      <Abschlusskante variant="grau" />
+      <VeredelungenGrid />
       <Abschlusskante variant="weiss" />
 
-      <main className="cf-container cf-section">
-        <h2>
-          Grundgerüst <span className="italic">steht.</span>
-        </h2>
-        <p className="cf-paragraph-large">
-          Schritt 2 fertig: TopNav, Footer und Abschlusskante als
-          wiederverwendbare Komponenten. Die 12 Sektionen folgen in Schritt 3.
-        </p>
-      </main>
+      {/* 8. Prozess */}
+      <ProzessSchritte />
 
+      {/* 9. Success Story (graue Sektion) */}
       <Abschlusskante variant="grau" />
+      <SuccessStory />
+      <Abschlusskante variant="weiss" />
 
+      {/* 10. Lookbook-Download */}
+      <LookbookCta />
+
+      {/* 11. Abschluss-CTA + Ansprechpartner (graue Sektion) */}
+      <Abschlusskante variant="grau" />
+      <AbschlussCta />
+
+      {/* 12. Footer */}
       <Footer />
     </div>
   );
