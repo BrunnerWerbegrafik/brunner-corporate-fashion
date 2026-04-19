@@ -331,3 +331,397 @@ p {
 .cf-section--white {
   background-color: var(--cf-white);
 }
+
+/* ---------- App-Shell ------------------------------------------------ */
+
+.cf-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.cf-app__main {
+  flex: 1 1 auto;
+}
+
+/* ---------- Hero-Platzhalter (wird in Schritt 3 durch Hero-Komponente ersetzt) */
+
+.cf-hero-placeholder {
+  position: relative;
+  min-height: 80vh;
+  background-color: var(--cf-dunkelblau);
+  background-image: linear-gradient(180deg, #003e58 0%, #002c3f 70%, #001a26 100%);
+  color: var(--cf-white);
+  display: flex;
+  flex-direction: column;
+}
+
+.cf-hero-placeholder__content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px var(--cf-abstand-rand-normal) 120px;
+}
+
+.cf-hero-placeholder__subline {
+  font-size: 26px;
+  color: var(--cf-white);
+  max-width: 720px;
+  margin-top: -40px;
+}
+
+@media (max-width: 767px) {
+  .cf-hero-placeholder__subline {
+    font-size: 18px;
+    margin-top: -20px;
+  }
+}
+
+/* ---------- TopNav ---------------------------------------------------- */
+
+.cf-nav {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.cf-nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 28px var(--cf-abstand-rand-normal);
+}
+
+.cf-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cf-nav__logo {
+  height: auto;
+  max-width: 180px;
+  display: block;
+}
+
+.cf-nav--negativ .cf-nav__logo {
+  /* Weißes Logo durch CSS-Filter-Invert, solange es nur die positive
+     SVG-Variante gibt. Sobald das negative Logo geliefert wird,
+     hier ersetzen. */
+  filter: brightness(0) invert(1);
+}
+
+.cf-nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.cf-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cf-black);
+  text-decoration: none;
+  font-weight: 300;
+  white-space: nowrap;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0;
+  font: inherit;
+  font-size: 18px;
+}
+
+.cf-nav__link:hover {
+  color: var(--cf-cyan);
+}
+
+.cf-nav--negativ .cf-nav__link {
+  color: var(--cf-white);
+}
+
+.cf-nav--negativ .cf-nav__link:hover {
+  color: var(--cf-cyan);
+}
+
+.cf-nav__dropdown {
+  position: relative;
+}
+
+.cf-nav__dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cf-nav__dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.cf-nav__dropdown.is-open .cf-nav__dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.cf-nav__dropdown-list {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  min-width: 220px;
+  padding: 16px 0;
+  background: var(--cf-white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+}
+
+.cf-nav__dropdown.is-open .cf-nav__dropdown-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.cf-nav__dropdown-link {
+  display: block;
+  padding: 10px 24px;
+  color: var(--cf-black);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.cf-nav__dropdown-link:hover {
+  color: var(--cf-cyan);
+}
+
+.cf-nav__cart {
+  padding: 8px;
+}
+
+.cf-nav__hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 0;
+  color: var(--cf-black);
+  cursor: pointer;
+}
+
+.cf-nav--negativ .cf-nav__hamburger {
+  color: var(--cf-white);
+}
+
+@media (max-width: 991px) {
+  .cf-nav__hamburger {
+    display: inline-flex;
+  }
+
+  .cf-nav__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--cf-white);
+    padding: 12px 0;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    display: none;
+  }
+
+  .cf-nav--mobile-open .cf-nav__menu {
+    display: flex;
+  }
+
+  .cf-nav--negativ.cf-nav--mobile-open .cf-nav__menu,
+  .cf-nav--standard.cf-nav--mobile-open .cf-nav__menu {
+    /* Mobile-Menü immer hell, unabhängig von variant */
+    background: var(--cf-white);
+  }
+
+  .cf-nav__link {
+    width: 100%;
+    padding: 12px var(--cf-abstand-rand-normal);
+    color: var(--cf-black);
+  }
+
+  .cf-nav--negativ .cf-nav__menu .cf-nav__link {
+    color: var(--cf-black);
+  }
+
+  .cf-nav__dropdown {
+    width: 100%;
+  }
+
+  .cf-nav__dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .cf-nav__dropdown-list {
+    position: static;
+    box-shadow: none;
+    padding: 0 0 8px 16px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+
+  .cf-nav__dropdown.is-open .cf-nav__dropdown-list {
+    display: block;
+  }
+}
+
+/* ---------- Footer --------------------------------------------------- */
+
+.cf-footer {
+  background-color: var(--cf-white-smoke);
+}
+
+.cf-footer__inner {
+  padding: 120px var(--cf-abstand-rand-normal) 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.cf-footer__logo {
+  width: clamp(180px, 18vw, 260px);
+  height: auto;
+}
+
+.cf-footer__divider {
+  height: 1px;
+  background-color: var(--cf-silver);
+  width: 100%;
+}
+
+.cf-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 2fr;
+  gap: 60px;
+}
+
+@media (max-width: 991px) {
+  .cf-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.cf-footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cf-footer__address,
+.cf-footer__hours {
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.cf-footer__link {
+  color: var(--cf-black);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  display: inline-block;
+  margin-bottom: 6px;
+  transition: color 0.2s ease;
+}
+
+.cf-footer__link:hover {
+  color: var(--cf-cyan);
+}
+
+.cf-footer__link--bold {
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.cf-footer__social {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cf-footer__social-link {
+  color: var(--cf-black);
+  display: inline-flex;
+  transition: color 0.2s ease;
+}
+
+.cf-footer__social-link:hover {
+  color: var(--cf-cyan);
+}
+
+.cf-footer__sitemap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+@media (max-width: 767px) {
+  .cf-footer__sitemap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 479px) {
+  .cf-footer__sitemap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cf-footer__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cf-footer__copyright {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  margin: 0;
+  color: var(--cf-black);
+}
+
+/* ---------- Abschlusskante (responsive Switch) ------------------------ */
+
+.cf-abschlusskante {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.cf-abschlusskante__desktop {
+  display: block;
+}
+
+.cf-abschlusskante__mobile {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .cf-abschlusskante__desktop {
+    display: none;
+  }
+  .cf-abschlusskante__mobile {
+    display: block;
+  }
+}

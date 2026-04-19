@@ -40,8 +40,8 @@ src/
 
 ## Status
 
-- **Schritt 1 — Projekt-Grundgerüst:** fertig
-- Schritt 2 — Layout-Komponenten (TopNav, Footer, Abschlusskante): offen
+- Schritt 1 — Projekt-Grundgerüst: fertig
+- **Schritt 2 — Layout-Komponenten (TopNav, Footer, Abschlusskante):** fertig
 - Schritt 3 — 12 Sektionen der Themenseite: offen
 - Schritt 4 — Routen-Gerüst Stufe 2: offen
 - Schritt 5 — Datenmodell & Service-Layer: offen
